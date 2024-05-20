@@ -1,0 +1,665 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Toros y Vacas API",
+        "description": "Primer Campeonato Mundial de Toros y Vacas",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/game/create": {
+            "post": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Crea un nuevo juego",
+                "operationId": "e6583fb2848fb88496db2ca17b4d21ee",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "username": {
+                                                "type": "string"
+                                            },
+                                            "age": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "pepe23",
+                                    "age": "23"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Juego creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "El juego ha sido creado"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": "5"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": true,
+                                        "message": "El juego ha sido creado",
+                                        "data": {
+                                            "id": 5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error al validar los datos recibidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Los datos recibidos no son válidos"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "username": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "La longitud máxima para el nombre de usuario es de 50 carácteres"
+                                                    }
+                                                },
+                                                "age": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "La edad debe ser un número entero"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "Los datos recibidos no son válidos",
+                                        "data": {
+                                            "username": [
+                                                "El nombre de usuario solo puede contener letras y números"
+                                            ],
+                                            "age": [
+                                                "La edad debe ser un número entero"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/game/propose_combination": {
+            "post": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Valida los dígitos propuestos para un intento",
+                "operationId": "d538ce1a88673f972b5ff4ac75cf8fd5",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "combination": {
+                                                "description": "Número de cuatro dígitos",
+                                                "type": "integer",
+                                                "example": "8541"
+                                            },
+                                            "game": {
+                                                "description": "Identificador del juego",
+                                                "type": "integer",
+                                                "example": "6"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "combination": "8541",
+                                    "game": "6"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Combinación aceptada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "La combinación ha sido aceptada"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "combination": {
+                                                    "description": "La combinación propuesta",
+                                                    "type": "integer",
+                                                    "example": "5623"
+                                                },
+                                                "bulls": {
+                                                    "description": "Cantidad de toros obtenidos",
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "cows": {
+                                                    "description": "Cantidad de vacas obtenidas",
+                                                    "type": "integer",
+                                                    "example": "2"
+                                                },
+                                                "attempts": {
+                                                    "description": "Cantidad de intentos",
+                                                    "type": "integer",
+                                                    "example": "6"
+                                                },
+                                                "time_available": {
+                                                    "description": "Tiempo disponible en segundos",
+                                                    "type": "integer",
+                                                    "example": "100"
+                                                },
+                                                "score": {
+                                                    "description": "Evaluación",
+                                                    "type": "integer",
+                                                    "example": "200"
+                                                },
+                                                "ranking": {
+                                                    "description": "Posición respecto del juego actual respecto a otros juegos",
+                                                    "type": "integer",
+                                                    "example": "15"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": true,
+                                        "message": "La combinación ha sido aceptada",
+                                        "data": {
+                                            "combination": 5623,
+                                            "bulls": 1,
+                                            "cows": 2,
+                                            "attempts": 6,
+                                            "time_available": 100,
+                                            "score": 200,
+                                            "ranking": 15
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "208": {
+                        "description": "Combinación duplicada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Combinación duplicada"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "Combinación duplicada"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "El juego no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "El juego no existe"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "No existe un juego con el identificador especificado"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "410": {
+                        "description": "Juego terminado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Se ha agotado el tiempo para el juego"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "combination": {
+                                                    "description": "La combinación que se debía adivinar",
+                                                    "type": "integer",
+                                                    "example": "5623"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "Se ha agotado el tiempo para el juego",
+                                        "data": {
+                                            "combination": 5623
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error al validar los datos recibidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Los datos recibidos no son válidos"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "combination": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer",
+                                                        "example": "La combinación debe tener exactamente 4 dígitos"
+                                                    }
+                                                },
+                                                "game": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer",
+                                                        "example": "El identificador del juego debe ser un número entero"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "Los datos recibidos no son válidos",
+                                        "data": {
+                                            "combinación": [
+                                                "La combinación debe tener exactamente 4 dígitos"
+                                            ],
+                                            "game": [
+                                                "El identificador del juego debe ser un número entero"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/game/previous_combination": {
+            "get": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Dado un número de intento devuelve la respuesta correspondiente al intento anterior",
+                "operationId": "388302294afadd082cdb748ce7c1a35d",
+                "parameters": [
+                    {
+                        "name": "attempt",
+                        "in": "query",
+                        "description": "Número del intento",
+                        "example": "4"
+                    },
+                    {
+                        "name": "game",
+                        "in": "query",
+                        "description": "Identificador del juego",
+                        "example": "6"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Combinación aceptada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "La combinación ha sido aceptada"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "combination": {
+                                                    "description": "La combinación propuesta",
+                                                    "type": "integer",
+                                                    "example": "5623"
+                                                },
+                                                "bulls": {
+                                                    "description": "Cantidad de toros obtenidos",
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "cows": {
+                                                    "description": "Cantidad de vacas obtenidas",
+                                                    "type": "integer",
+                                                    "example": "2"
+                                                },
+                                                "attempts": {
+                                                    "description": "Cantidad de intentos",
+                                                    "type": "integer",
+                                                    "example": "6"
+                                                },
+                                                "time_available": {
+                                                    "description": "Tiempo disponible en segundos",
+                                                    "type": "integer",
+                                                    "example": "100"
+                                                },
+                                                "score": {
+                                                    "description": "Evaluación",
+                                                    "type": "integer",
+                                                    "example": "200"
+                                                },
+                                                "ranking": {
+                                                    "description": "Posición respecto del juego actual respecto a otros juegos",
+                                                    "type": "integer",
+                                                    "example": "15"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": true,
+                                        "message": "La combinación ha sido aceptada",
+                                        "data": {
+                                            "combination": 5623,
+                                            "bulls": 1,
+                                            "cows": 2,
+                                            "attempts": 6,
+                                            "time_available": 100,
+                                            "score": 200,
+                                            "ranking": 15
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "El juego o el intento no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "El juego no existe"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "No existe un juego con el identificador especificado o no existe un intento con tal número"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error al validar los datos recibidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Los datos recibidos no son válidos"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "attempt": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer",
+                                                        "example": "El número de intento debe ser mayor que 1"
+                                                    }
+                                                },
+                                                "game": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer",
+                                                        "example": "El identificador del juego debe ser un número entero"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "Los datos recibidos no son válidos",
+                                        "data": {
+                                            "attempt": [
+                                                "El número de intento debe ser mayor que 1"
+                                            ],
+                                            "game": [
+                                                "El identificador del juego debe ser un número entero"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/game/delete": {
+            "delete": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Elimina los datos de un juego",
+                "operationId": "2e98b288612c5bc1f25a533a777fd8a7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Identificador del juego",
+                        "example": "6"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Juego eliminado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "El juego ha sido eliminado"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": true,
+                                        "message": "El juego ha sido eliminado"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "El juego no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No existe un juego con el identificador especificado"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "No existe un juego con el identificador especificado"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error al validar los datos recibidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Los datos recibidos no son válidos"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer",
+                                                        "example": "El identificador del juego debe ser un número entero"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "success": false,
+                                        "message": "Los datos recibidos no son válidos",
+                                        "data": {
+                                            "id": [
+                                                "El identificador del juego debe ser un número entero"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

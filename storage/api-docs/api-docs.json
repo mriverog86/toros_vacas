@@ -1,0 +1,78 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Toros y Vacas",
+        "description": "Primer Campeonato Mundial de Toros y Vacas",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/game/create": {
+            "post": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Crea un nuevo juego",
+                "operationId": "e6583fb2848fb88496db2ca17b4d21ee",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "400": {
+                        "description": "Solicitud no válida"
+                    }
+                }
+            }
+        },
+        "/api/v1/game/propose_combination": {
+            "post": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Valida los dígitos propuestos para un intento",
+                "operationId": "d538ce1a88673f972b5ff4ac75cf8fd5",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "400": {
+                        "description": "Solicitud no válida"
+                    }
+                }
+            }
+        },
+        "/api/v1/game/previous_combination": {
+            "get": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Dado un número de intento devuelve la respuesta correspondiente al intento anterior",
+                "operationId": "388302294afadd082cdb748ce7c1a35d",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "400": {
+                        "description": "Solicitud no válida"
+                    }
+                }
+            }
+        },
+        "/api/v1/game/delete": {
+            "delete": {
+                "tags": [
+                    "Juego"
+                ],
+                "summary": "Elimina los datos de un juego",
+                "operationId": "2e98b288612c5bc1f25a533a777fd8a7",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "400": {
+                        "description": "Solicitud no válida"
+                    }
+                }
+            }
+        }
+    }
+}
