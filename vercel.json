@@ -20,6 +20,8 @@
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
 
+        "LOG_CHANNEL": "stderr",
+
         "APP_NAME":"Toros y Vacas",
         "APP_TIMEZONE":"UTC",
 
