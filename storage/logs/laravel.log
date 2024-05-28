@@ -112,3 +112,38 @@ LINE 1: select * from \"tv_sessions\" where \"id\" = $1 limit 1
 #50 /var/www/toros_vacas/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
 #51 {main}
 "} 
+[2024-05-28 14:00:14] local.ERROR: Command "l5-swagger:publish" is not defined.
+
+Did you mean one of these?
+    config:publish
+    l5-swagger:generate
+    lang:publish
+    sail:publish
+    stub:publish
+    vendor:publish {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"l5-swagger:publish\" is not defined.
+
+Did you mean one of these?
+    config:publish
+    l5-swagger:generate
+    lang:publish
+    sail:publish
+    stub:publish
+    vendor:publish at /var/www/toros_vacas/vendor/symfony/console/Application.php:704)
+[stacktrace]
+#0 /var/www/toros_vacas/vendor/symfony/console/Application.php(260): Symfony\\Component\\Console\\Application->find()
+#1 /var/www/toros_vacas/vendor/symfony/console/Application.php(169): Symfony\\Component\\Console\\Application->doRun()
+#2 /var/www/toros_vacas/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Symfony\\Component\\Console\\Application->run()
+#3 /var/www/toros_vacas/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1187): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 /var/www/toros_vacas/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#5 {main}
+"} 
+[2024-05-28 14:02:18] local.ERROR: There are no commands defined in the "swagger-lume" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"swagger-lume\" namespace. at /var/www/toros_vacas/vendor/symfony/console/Application.php:638)
+[stacktrace]
+#0 /var/www/toros_vacas/vendor/symfony/console/Application.php(687): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /var/www/toros_vacas/vendor/symfony/console/Application.php(260): Symfony\\Component\\Console\\Application->find()
+#2 /var/www/toros_vacas/vendor/symfony/console/Application.php(169): Symfony\\Component\\Console\\Application->doRun()
+#3 /var/www/toros_vacas/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Symfony\\Component\\Console\\Application->run()
+#4 /var/www/toros_vacas/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1187): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 /var/www/toros_vacas/artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#6 {main}
+"} 
