@@ -11,6 +11,18 @@
             "dest": "public/favicon.ico"
         },
         {
+            "src": "^/(.*).(png|jpg|jpeg)",
+            "dest": "public/images/$1.$2"
+        },
+        {
+            "src": "^/(.*).(css)",
+            "dest": "public/css/$1.css"
+        },
+        {
+            "src": "^/(.*).(js)",
+            "dest": "public/js/$1.js"
+        },
+        {
             "src": "/(css|js|images)/(.*)",
             "dest": "public/$1/$2"
         },
