@@ -12,9 +12,9 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/documentation/v1',
-                'docs' => '/api/documentation/v1',
-                'oauth2_callback' => '/api/documentation/v1/callback'
+                'api' => '/documentation/v1',
+                'docs' => '/documentation/v1',
+                'oauth2_callback' => '/documentation/v1/callback'
             ],
             'paths' => [
                 /*
