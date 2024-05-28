@@ -29,7 +29,7 @@
         "APP_FALLBACK_LOCALE":"es",
         "APP_FAKER_LOCALE":"es_ES",
 
-        "DB_CONNECTION":"sqlite",
+        "DB_CONNECTION":"pgsql",
 
         "CACHE_STORE":"database",
 
