@@ -13,7 +13,7 @@ return [
                  * Route for accessing api documentation interface
                 */
                 'api' => 'api/documentation/v1',
-                'docs' => '/api/v1/',
+                'docs' => '/api/v1',
                 'oauth2_callback' => '/api/v1/callback'
             ],
             'paths' => [
