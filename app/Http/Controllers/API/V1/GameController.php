@@ -30,7 +30,7 @@ class GameController extends Controller
 {
     /**
      * @OA\Post(
-     *     path="/api/api/v1/game/create",
+     *     path="/api/v1/game/create",
      *     summary="Crea un nuevo juego",
      *     tags={"Juego"},
      *     @OA\RequestBody(
@@ -124,7 +124,7 @@ class GameController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/api/v1/game/propose_combination",
+     *     path="/api/v1/game/propose_combination",
      *     summary="Valida los dígitos propuestos para un intento",
      *     tags={"Juego"},
      *     @OA\RequestBody(
@@ -251,7 +251,7 @@ class GameController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/api/v1/game/previous_combination",
+     *     path="/api/v1/game/previous_combination",
      *     summary="Dado un número de intento devuelve la respuesta correspondiente al intento anterior",
      *     tags={"Juego"},
      *     @OA\Parameter(name="attempt", description="Número del intento", in="query", example="4"),
@@ -331,7 +331,7 @@ class GameController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/api/v1/game/delete",
+     *     path="/api/v1/game/delete",
      *     summary="Elimina los datos de un juego",
      *     tags={"Juego"},
      *     @OA\Parameter(name="id", description="Identificador del juego", in="query", example="6"),
