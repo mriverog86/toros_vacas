@@ -6,13 +6,13 @@
         "version": "1.0"
     },
     "paths": {
-        "/api/api/v1/game/create": {
+        "/v1/game/create": {
             "post": {
                 "tags": [
                     "Juego"
                 ],
                 "summary": "Crea un nuevo juego",
-                "operationId": "12230d0a979ef52d7d197e0e485ae565",
+                "operationId": "ef1197e0742ed2e4bed0be321012c190",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -130,13 +130,13 @@
                 }
             }
         },
-        "/api/api/v1/game/propose_combination": {
+        "/v1/game/propose_combination": {
             "post": {
                 "tags": [
                     "Juego"
                 ],
                 "summary": "Valida los dígitos propuestos para un intento",
-                "operationId": "5e1b73ffdeb40bf799889e621a516b8a",
+                "operationId": "3d302212bf2ebcf84dbb4f0e1264f64c",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -380,13 +380,13 @@
                 }
             }
         },
-        "/api/api/v1/game/previous_combination": {
+        "/v1/game/previous_combination": {
             "get": {
                 "tags": [
                     "Juego"
                 ],
                 "summary": "Dado un número de intento devuelve la respuesta correspondiente al intento anterior",
-                "operationId": "b05036901aebec0aadcbec22120257f4",
+                "operationId": "e49e3d1d18b32a538dadd76d0bd46266",
                 "parameters": [
                     {
                         "name": "attempt",
@@ -553,13 +553,13 @@
                 }
             }
         },
-        "/api/api/v1/game/delete": {
+        "/v1/game/delete": {
             "delete": {
                 "tags": [
                     "Juego"
                 ],
                 "summary": "Elimina los datos de un juego",
-                "operationId": "136a753a8242b1a0a6f79c86bec32734",
+                "operationId": "745ffbcb3aee197f312a3ae41382fe2a",
                 "parameters": [
                     {
                         "name": "id",
