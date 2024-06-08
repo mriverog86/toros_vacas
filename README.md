@@ -100,7 +100,8 @@ Los requerimientos son los siguientes:
 11. Cree un solo modelo de datos (una sola tabla en la base de datos) para almacenar toda la información relacionada con un juego.
 12. Dispone de 40 h laborables para realizar esta solución, aunque puede ser enviada antes si lo desea.
 
-[Descargar ejercicio [PDF]](public/doc/toros_y_Vaca_Ejercicio_práctico_en_PHP.pdf)
+<a href="public/doc/toros_y_Vaca_Ejercicio_práctico_en_PHP.pdf" download>Descargar ejercicio [PDF]</a>
+
 
 ## Sugerencias
 
