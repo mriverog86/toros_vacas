@@ -5,6 +5,12 @@
         { "src": "/api/index.php", "use": "vercel-php@0.6.1" },
         { "src": "/public/**", "use": "@vercel/static" }
     ],
+    "git": {
+        "deploymentEnabled": {
+            "main": false,
+            "vercel": true
+        }
+    },
     "routes": [
         {
             "src": "/favicon.ico",
