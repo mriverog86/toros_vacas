@@ -8,7 +8,8 @@ Se encuentra publicada una versión que usa:
 
 Para acceder a la aplicación pinche el siguiente acceso directo: [https://toros-vacas.vercel.app/](https://toros-vacas.vercel.app/).
 
-#Instalación
+
+# Instalación
 
 1. Clone el proyecto en su entorno de trabajo:
 
@@ -99,9 +100,6 @@ Los requerimientos son los siguientes:
 10. Cree un Readme.md con todos los detalles que considere necesarios.
 11. Cree un solo modelo de datos (una sola tabla en la base de datos) para almacenar toda la información relacionada con un juego.
 12. Dispone de 40 h laborables para realizar esta solución, aunque puede ser enviada antes si lo desea.
-
-<a href="public/doc/toros_y_Vaca_Ejercicio_práctico_en_PHP.pdf" download>Descargar ejercicio [PDF]</a>
-
 
 ## Sugerencias
 
